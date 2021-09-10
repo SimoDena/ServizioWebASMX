@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Somma">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="x" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="y" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SommaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SommaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RitornaCalcoliSessione">
+        <s:complexType />
+      </s:element>
+      <s:element name="RitornaCalcoliSessioneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RitornaCalcoliSessioneResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SommaSoapIn">
+    <wsdl:part name="parameters" element="tns:Somma" />
+  </wsdl:message>
+  <wsdl:message name="SommaSoapOut">
+    <wsdl:part name="parameters" element="tns:SommaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RitornaCalcoliSessioneSoapIn">
+    <wsdl:part name="parameters" element="tns:RitornaCalcoliSessione" />
+  </wsdl:message>
+  <wsdl:message name="RitornaCalcoliSessioneSoapOut">
+    <wsdl:part name="parameters" element="tns:RitornaCalcoliSessioneResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WsCalcolatoreSoap">
+    <wsdl:operation name="Somma">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Somma due numeri interi</wsdl:documentation>
+      <wsdl:input message="tns:SommaSoapIn" />
+      <wsdl:output message="tns:SommaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RitornaCalcoliSessione">
+      <wsdl:input message="tns:RitornaCalcoliSessioneSoapIn" />
+      <wsdl:output message="tns:RitornaCalcoliSessioneSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WsCalcolatoreSoap" type="tns:WsCalcolatoreSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Somma">
+      <soap:operation soapAction="http://tempuri.org/Somma" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RitornaCalcoliSessione">
+      <soap:operation soapAction="http://tempuri.org/RitornaCalcoliSessione" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsCalcolatoreSoap12" type="tns:WsCalcolatoreSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Somma">
+      <soap12:operation soapAction="http://tempuri.org/Somma" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RitornaCalcoliSessione">
+      <soap12:operation soapAction="http://tempuri.org/RitornaCalcoliSessione" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WsCalcolatore">
+    <wsdl:port name="WsCalcolatoreSoap" binding="tns:WsCalcolatoreSoap">
+      <soap:address location="http://localhost:61110/WsCalcolatore.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsCalcolatoreSoap12" binding="tns:WsCalcolatoreSoap12">
+      <soap12:address location="http://localhost:61110/WsCalcolatore.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1525
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServizioWebCalcolatore", "ServizioWebCalcolatore\ServizioWebCalcolatore.csproj", "{DDDB5430-8A31-43D1-95B7-EA9DB63C478F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppCalcolatore", "WebAppCalcolatore\WebAppCalcolatore.csproj", "{D29ADC0C-497F-4877-8801-51A42F1F2993}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DDDB5430-8A31-43D1-95B7-EA9DB63C478F} = {DDDB5430-8A31-43D1-95B7-EA9DB63C478F}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DDDB5430-8A31-43D1-95B7-EA9DB63C478F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDDB5430-8A31-43D1-95B7-EA9DB63C478F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDDB5430-8A31-43D1-95B7-EA9DB63C478F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDDB5430-8A31-43D1-95B7-EA9DB63C478F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D29ADC0C-497F-4877-8801-51A42F1F2993}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D29ADC0C-497F-4877-8801-51A42F1F2993}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D29ADC0C-497F-4877-8801-51A42F1F2993}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D29ADC0C-497F-4877-8801-51A42F1F2993}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6EDEFECD-DB35-40E2-803C-D10E3DB6EC6C}
+	EndGlobalSection
+EndGlobal
